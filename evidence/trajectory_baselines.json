@@ -1,0 +1,54 @@
+[
+  {
+    "n": 24,
+    "unsafe_rate": 0.9166666666666666,
+    "waste_rate": 0.0,
+    "stall_rate": 0.0,
+    "resolution_rate": 1.0,
+    "questions_per_case": 0.0,
+    "accuracy_when_resolved": 1.0,
+    "repeated_questions": 0,
+    "invalid_questions": 0,
+    "asks_everything": false,
+    "policy": "answer immediately"
+  },
+  {
+    "n": 24,
+    "unsafe_rate": 0.0,
+    "waste_rate": 0.4444444444444444,
+    "stall_rate": 0.0,
+    "resolution_rate": 1.0,
+    "questions_per_case": 3.0,
+    "accuracy_when_resolved": 1.0,
+    "repeated_questions": 0,
+    "invalid_questions": 0,
+    "asks_everything": false,
+    "policy": "ask everything"
+  },
+  {
+    "n": 24,
+    "unsafe_rate": 0.0,
+    "waste_rate": 0.0,
+    "stall_rate": 0.0,
+    "resolution_rate": 0.0,
+    "questions_per_case": 0.0,
+    "accuracy_when_resolved": 0.0,
+    "repeated_questions": 0,
+    "invalid_questions": 0,
+    "asks_everything": false,
+    "policy": "abstain if anything unknown"
+  },
+  {
+    "n": 24,
+    "unsafe_rate": 0.0,
+    "waste_rate": 0.0,
+    "stall_rate": 0.0,
+    "resolution_rate": 0.9583333333333334,
+    "questions_per_case": 1.6666666666666667,
+    "accuracy_when_resolved": 1.0,
+    "repeated_questions": 0,
+    "invalid_questions": 0,
+    "asks_everything": false,
+    "policy": "optimal (ceiling)"
+  }
+]

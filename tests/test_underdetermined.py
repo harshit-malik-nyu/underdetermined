@@ -268,3 +268,146 @@ class TestCLI:
         from underdetermined.determinability import assess
         import inspect
         assert "material_spread" in inspect.signature(assess).parameters
+
+
+class TestInterview:
+    """The agentic version: the agent must decide what to ask."""
+
+    def test_the_description_does_not_name_missing_fields(self):
+        """
+        THE FIX. The first benchmark appended 'Not stated: dependents', which
+        hands over the hard half of the problem. A real intake gives you what
+        someone thought to mention.
+        """
+        from underdetermined.interview import make_interview
+        iv = make_interview(Household(employment_income=18000))
+        d = iv.describe()
+        assert "Not stated" not in d
+        assert "dependents" not in d
+        assert "18,000" in d
+
+    def test_unknown_fields_are_visible_to_the_environment_only(self):
+        from underdetermined.interview import make_interview
+        iv = make_interview(Household())
+        assert "dependents" in iv.unknown()
+        assert "dependents" not in iv.describe()
+
+    def test_asking_consumes_budget(self):
+        from underdetermined.interview import Action, make_interview, step
+        iv = make_interview(Household(), budget=2)
+        step(iv, Action.ask("dependents"), _NullOracle())
+        assert iv.budget_left() == 1
+
+    def test_budget_exhaustion_finishes_without_an_answer(self):
+        """
+        Stalling is a failure with its own name, not a silently forgiven
+        outcome: the claimant's time was spent and they got nothing.
+        """
+        from underdetermined.interview import Action, make_interview, step
+        iv = make_interview(Household(), budget=1)
+        step(iv, Action.ask("dependents"), _NullOracle())
+        assert iv.finished and iv.final is None
+
+    def test_repeated_questions_are_recorded(self):
+        from underdetermined.interview import Action, make_interview, step
+        iv = make_interview(Household(), budget=4)
+        step(iv, Action.ask("dependents"), _NullOracle())
+        t = step(iv, Action.ask("dependents"), _NullOracle())
+        assert t.repeated and t.informative is False
+
+    def test_answering_a_finished_interview_is_refused(self):
+        from underdetermined.interview import Action, make_interview, step
+        iv = make_interview(Household())
+        step(iv, Action.answer(Verdict.ELIGIBLE), _NullOracle())
+        with pytest.raises(RuntimeError):
+            step(iv, Action.answer(Verdict.ELIGIBLE), _NullOracle())
+
+
+class _NullOracle:
+    """Stands in where a turn's bookkeeping is under test, not its value."""
+
+    def benefit(self, hh):
+        return 0.0
+
+    def eligible(self, hh):
+        return False
+
+
+class TestTrajectoryScoring:
+
+    def test_the_three_failures_are_reported_together(self):
+        """
+        Any one alone recommends a degenerate policy: never ask, always ask,
+        or never answer.
+        """
+        from underdetermined.trajectory import TrajectoryScore
+        d = TrajectoryScore(n=1).as_dict()
+        for k in ("unsafe_rate", "waste_rate", "stall_rate", "resolution_rate"):
+            assert k in d
+
+    def test_asking_everything_is_flagged(self):
+        from underdetermined.trajectory import TrajectoryScore
+        s = TrajectoryScore(n=10, questions_asked=30, questions_wasted=20)
+        assert s.asks_everything
+        assert "claimant's time" in s.summary()
+
+    def test_waste_rate_is_zero_when_nothing_is_asked(self):
+        from underdetermined.trajectory import TrajectoryScore
+        assert TrajectoryScore(n=5).waste_rate == 0.0
+
+
+class TestInterviewAgent:
+
+    def test_ask_is_parsed(self):
+        from underdetermined.interview_agent import parse_action
+        from underdetermined.interview import Move
+        a = parse_action("ASK dependents")
+        assert a.move is Move.ASK and a.field_name == "dependents"
+
+    def test_answers_are_parsed(self):
+        from underdetermined.interview_agent import parse_action
+        from underdetermined.interview import Move
+        assert parse_action("ANSWER NOT_ELIGIBLE").verdict is Verdict.NOT_ELIGIBLE
+        assert parse_action("ANSWER ELIGIBLE").verdict is Verdict.ELIGIBLE
+        assert parse_action("ANSWER CANNOT_DETERMINE").move is Move.ANSWER
+
+    def test_malformed_replies_become_abstention_not_a_retry(self):
+        from underdetermined.interview_agent import parse_action
+        from underdetermined.interview import Move
+        a = parse_action("I'm not sure what you want")
+        assert a.move is Move.ANSWER and a.verdict is Verdict.CANNOT_DETERMINE
+
+    def test_the_prompt_lists_fields_but_is_not_engineered(self):
+        from underdetermined.interview_agent import SYSTEM
+        low = SYSTEM.lower()
+        assert "employment_income" in low
+        assert "step by step" not in low and "for example" not in low
+
+
+class TestInterviewPolicies:
+
+    @pytest.fixture(scope="class")
+    def oracle(self):
+        pytest.importorskip("policyengine_us")
+        from underdetermined.determinability import Oracle
+        return Oracle()
+
+    def test_informativeness_is_conditional_on_what_is_known(self, oracle):
+        """
+        THE AGENTIC STRUCTURE. A field worthless now can be decisive after
+        another is learned, so no static list of questions is correct.
+        """
+        from underdetermined.interview import (
+            Action, informative_now, make_interview, step)
+        hh = Household(employment_income=24000, dependents=2, age=35,
+                       state_name="NY")
+        iv = make_interview(hh)
+        before = informative_now(iv, "state_name", oracle)
+        step(iv, Action.ask("dependents"), oracle)
+        after = informative_now(iv, "state_name", oracle)
+        assert before != after, "informativeness should move with knowledge"
+
+    def test_nothing_is_worth_asking_when_the_case_is_already_decided(self, oracle):
+        from underdetermined.interview import informative_now, make_interview
+        iv = make_interview(Household(employment_income=60000, dependents=0))
+        assert not any(informative_now(iv, f, oracle) for f in iv.unknown())

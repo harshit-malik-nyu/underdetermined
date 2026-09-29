@@ -79,11 +79,74 @@ changed the answer. Closing that gap *without* giving up the zero unsafe rate
 is what a reasoning agent has to earn — and coverage bought with unsafe answers
 is not progress.
 
+---
+
+# The agentic version: what should it ask?
+
+The benchmark above hands the agent a description ending *"Not stated:
+dependents."* That signposts the gap, which is the hard half of the problem.
+
+A real intake gives you what a claimant thought to mention. Noticing the gap is
+the job — and the response to a gap is not abstention, it is **asking**, which
+costs the claimant time and patience, and which they may abandon partway
+through.
+
+`interview.py` presents each case as a conversation. The agent starts with what
+was volunteered, may request fields up to a budget, and must decide when it
+knows enough.
+
+## Value of information, also computed
+
+The same sweep that gives determinability gives the worth of each question.
+Hold what is known fixed, sweep the unknown field:
+
+| Household | Worth asking |
+|---|---|
+| Earns $24,000 | `dependents` |
+| Earns $60,000 | **nothing — decide now** |
+| Earns $0 | `dependents`, `state_name` |
+
+**And it changes as the interview proceeds.** For the $24,000 case,
+`state_name` is not worth asking at the start; after `dependents` is learned,
+it is. No static list of questions is correct, which is what makes this a
+trajectory rather than a classification.
+
+## Three failures, not one
+
+| | |
+|---|---|
+| **Unsafe** | Answered while the case was still open. The verdict is a guess and downstream it becomes a filed claim. |
+| **Wasted** | Asked for something that could not change the answer. Each one is a document request, and abandonment is the dominant failure mode in benefits intake. |
+| **Stalled** | Budget spent, no answer. The claimant's time went nowhere. |
+
+Reported together always. Optimising any one alone is trivial and useless.
+
+## Reference policies
+
+24 intake interviews, four-question budget.
+
+| Policy | Unsafe | Wasted | Stalled | Resolved | Questions/case |
+|---|---:|---:|---:|---:|---:|
+| Answer immediately | **91.7%** | 0.0% | 0.0% | 100% | 0.00 |
+| Ask everything | 0.0% | **44.4%** | 0.0% | 100% | 3.00 |
+| Abstain if anything unknown | 0.0% | 0.0% | 0.0% | **0.0%** | 0.00 |
+| Optimal (ceiling) | 0.0% | 0.0% | 0.0% | 95.8% | **1.67** |
+
+Each degenerate policy fails differently, so an agent has to beat all three at
+once.
+
+**The headline gap: ask-everything needs 3.00 questions and 44% of them could
+not have changed anything. Perfect information-seeking needs 1.67 and wastes
+none.** An agent that closes that gap is removing 45% of the intake burden
+from people who abandon long forms — which is the entire reason to deploy one
+here.
+
 ## What is not established
 
-**No agent has been run on this.** The harness in `agent.py` calls a real model
-and raises without an API key rather than fabricating verdicts, so the agent
-column is empty until someone runs it. The benchmark and the baselines stand on
+**No agent has been run on either benchmark.** Both harnesses call a real
+model and raise without an API key rather than fabricating output, so the agent
+rows are honestly empty. `interview_agent.py` plugs into the same runner as the
+reference policies, so scoring one is a single command with a key. The benchmark and the baselines stand on
 their own; the agent result is the open question.
 
 Other limits are in [`docs/against.md`](docs/against.md), including the one
