@@ -1,0 +1,67 @@
+[
+  {
+    "n": 20,
+    "unsafe_rate": 0.0,
+    "stall_rate": 0.0,
+    "resolution_rate": 0.0,
+    "accuracy_when_resolved": 0.0,
+    "requests_per_case": 0.0,
+    "over_retried": 0.0,
+    "gave_up_early": 0.0,
+    "trusted_stale": 0.0,
+    "ignored_clash": 0.0,
+    "policy": "close immediately"
+  },
+  {
+    "n": 20,
+    "unsafe_rate": 0.0,
+    "stall_rate": 0.0,
+    "resolution_rate": 1.0,
+    "accuracy_when_resolved": 0.8,
+    "requests_per_case": 1.0,
+    "over_retried": 0.0,
+    "gave_up_early": 0.0,
+    "trusted_stale": 0.15,
+    "ignored_clash": 0.0,
+    "policy": "self-report only"
+  },
+  {
+    "n": 20,
+    "unsafe_rate": 0.0,
+    "stall_rate": 0.0,
+    "resolution_rate": 1.0,
+    "accuracy_when_resolved": 0.85,
+    "requests_per_case": 7.0,
+    "over_retried": 0.4,
+    "gave_up_early": 0.15,
+    "trusted_stale": 0.0,
+    "ignored_clash": 0.15,
+    "policy": "exhaust everything"
+  },
+  {
+    "n": 20,
+    "unsafe_rate": 0.0,
+    "stall_rate": 0.0,
+    "resolution_rate": 1.0,
+    "accuracy_when_resolved": 0.75,
+    "requests_per_case": 4.0,
+    "over_retried": 0.0,
+    "gave_up_early": 0.65,
+    "trusted_stale": 0.15,
+    "ignored_clash": 0.05,
+    "policy": "one shot each"
+  },
+  {
+    "n": 20,
+    "unsafe_rate": 0.0,
+    "stall_rate": 0.0,
+    "resolution_rate": 1.0,
+    "accuracy_when_resolved": 0.8,
+    "requests_per_case": 2.3,
+    "over_retried": 0.0,
+    "gave_up_early": 0.0,
+    "trusted_stale": 0.2,
+    "ignored_clash": 0.0,
+    "policy": "sensible (hand-written)"
+  }
+]

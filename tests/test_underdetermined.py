@@ -411,3 +411,107 @@ class TestInterviewPolicies:
         from underdetermined.interview import informative_now, make_interview
         iv = make_interview(Household(employment_income=60000, dependents=0))
         assert not any(informative_now(iv, f, oracle) for f in iv.unknown())
+
+
+class TestUnreliableSources:
+    """The long-horizon layer: sources that fail, go stale and contradict."""
+
+    def test_an_unreadable_document_stays_unreadable(self):
+        """
+        REGRESSION. Illegibility was drawn fresh on every request, so a
+        document declared unreadable could become readable on retry — while
+        the message told the agent it could not. The environment was
+        rewarding behaviour the over-retry metric punished.
+        """
+        from underdetermined.casefile import CaseFile
+        from underdetermined.sources import Outcome
+        for seed in range(1, 25):
+            cf = CaseFile(truth=Household(), seed=seed)
+            outs = [cf.ask("pay_stub").outcome for _ in range(3)]
+            if outs[0] is Outcome.ILLEGIBLE:
+                assert all(o is Outcome.ILLEGIBLE for o in outs)
+                return
+        pytest.skip("no illegible draw in the seed range")
+
+    def test_self_report_is_partial(self):
+        """
+        It originally revealed all four fields, which made every other source
+        redundant and removed the information-gathering problem entirely.
+        """
+        from underdetermined.sources import SOURCES
+        r = SOURCES["self_report"].reveals
+        assert "employment_income" in r and "dependents" in r
+        assert "age" not in r and "state_name" not in r
+
+    def test_no_single_source_covers_everything(self):
+        from underdetermined.determinability import SWEEPABLE
+        from underdetermined.sources import SOURCES
+        for s in SOURCES.values():
+            assert set(s.reveals) != set(SWEEPABLE), f"{s.name} ends the game"
+
+    def test_a_stale_reading_says_so(self):
+        from underdetermined.sources import Outcome, Reading
+        r = Reading("pay_stub", Outcome.STALE, {"employment_income": 20000})
+        assert "months ago" in r.describe()
+
+    def test_a_contradiction_is_surfaced(self):
+        from underdetermined.sources import Outcome, Reading
+        r = Reading("pay_stub", Outcome.ARRIVED, {"employment_income": 20000},
+                    contradicts=("employment_income",))
+        assert "disagrees" in r.describe()
+
+    def test_trajectories_are_reproducible(self):
+        """
+        Two agents must face identical conditions, or the comparison is luck
+        at this sample size.
+        """
+        from underdetermined.casefile import CaseFile
+        a = [CaseFile(truth=Household(), seed=4).ask("pay_stub").outcome
+             for _ in range(1)]
+        b = [CaseFile(truth=Household(), seed=4).ask("pay_stub").outcome
+             for _ in range(1)]
+        assert a == b
+
+    def test_a_closed_file_refuses_further_work(self):
+        from underdetermined.casefile import CaseFile
+        cf = CaseFile(truth=Household())
+        cf.close(Verdict.ELIGIBLE)
+        with pytest.raises(RuntimeError):
+            cf.ask("pay_stub")
+
+
+class TestCaseFilePolicies:
+
+    @pytest.fixture(scope="class")
+    def rows(self):
+        import json
+        p = ROOT / "evidence" / "casefile_baselines.json"
+        if not p.exists():
+            pytest.skip("no committed run")
+        return {r["policy"]: r for r in json.loads(p.read_text())}
+
+    def test_exhausting_retries_the_unretryable(self, rows):
+        """
+        The waste only an unreliable environment can see: re-requesting a
+        document it has been told is unreadable.
+        """
+        assert rows["exhaust everything"]["over_retried"] > 0.2
+
+    def test_one_shot_abandons_retryable_sources(self, rows):
+        """The opposite failure, and the more expensive one for the applicant."""
+        assert rows["one shot each"]["gave_up_early"] > 0.4
+
+    def test_the_hand_written_policy_is_cheaper_than_exhausting(self, rows):
+        s = rows["sensible (hand-written)"]
+        e = rows["exhaust everything"]
+        assert s["requests_per_case"] < e["requests_per_case"] / 2
+
+    def test_accuracy_alone_would_recommend_the_wasteful_policy(self, rows):
+        """
+        THE POINT OF THE EXTRA COLUMNS. Exhausting scores highest on accuracy
+        and re-asks for unreadable documents 40% of the time. A benchmark
+        reporting accuracy alone recommends it.
+        """
+        best = max(rows.values(), key=lambda r: r["accuracy_when_resolved"])
+        assert best["policy"] == "exhaust everything"
+        assert best["over_retried"] > 0.2

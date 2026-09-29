@@ -162,6 +162,58 @@ score, because a number here is unreadable alone — answering immediately is
 91.7% unsafe, asking everything wastes 44.4% of its questions at 3.00 per case,
 perfect seeking resolves at 1.67 with none wasted.
 
+---
+
+# The long-horizon version: when asking doesn't work
+
+The interview benchmark lets the agent ask for a field and receive the truth.
+That is a clean environment, and clean environments hide the failures that
+matter in production.
+
+`casefile.py` replaces fields with **sources**. The agent requests a pay stub,
+a benefits letter, the applicant's own recollection — and a source may not
+arrive, may be unreadable, may be months out of date, or may disagree with
+what it was already told.
+
+| Source | Reveals | Fails | Illegible | Stale | Precision |
+|---|---|---:|---:|---:|---|
+| Self-report | income, dependents | 0% | 0% | 15% | a band |
+| Pay stub | income | 35% | 20% | 10% | exact |
+| Agency letter | dependents, state | 45% | 5% | 5% | exact |
+| ID document | age, state | 10% | 15% | 2% | exact |
+
+No single source covers everything, so one request never ends the case.
+
+## Four failures the clean version cannot see
+
+| | |
+|---|---|
+| **Retried the unretryable** | Re-requested a document it was told is unreadable. |
+| **Gave up early** | Abandoned a source after one failure when a retry had a real chance. |
+| **Trusted a stale figure** | Used a number the source itself flagged as months old. |
+| **Ignored a contradiction** | Two sources disagreed and it picked one without checking a third. |
+
+## Reference policies
+
+20 case files, eight-request budget.
+
+| Policy | Accuracy | Requests | Retried∞ | Gave up | Trusted stale |
+|---|---:|---:|---:|---:|---:|
+| Close immediately | 0% | 0.00 | — | — | — |
+| Self-report only | 80% | 1.00 | 0% | 0% | 15% |
+| Exhaust everything | **85%** | 7.00 | **40%** | 15% | 0% |
+| One shot each | 75% | 4.00 | 0% | **65%** | 15% |
+| Sensible (hand-written) | 80% | **2.30** | 0% | 0% | 20% |
+
+**Accuracy alone recommends the worst policy.** Exhausting scores highest and
+buys five points for three times the requests, while re-asking for unreadable
+documents in 40% of cases. One-shot abandons a retryable source in 65%. Neither
+failure exists in an environment where asking works.
+
+The hand-written policy reaches the same accuracy as exhausting-minus-five at
+**a third of the cost**, and that gap is what an agent should be measured
+against — not against zero.
+
 ## What is not established
 
 **No agent has been run on either benchmark.** Both harnesses call a real
