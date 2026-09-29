@@ -141,6 +141,18 @@ none.** An agent that closes that gap is removing 45% of the intake burden
 from people who abandon long forms — which is the entire reason to deploy one
 here.
 
+## Running an agent on it
+
+[`docs/benchmark.html`](docs/benchmark.html) runs the interview benchmark
+against a real model in the browser. The full oracle is precomputed and
+embedded — 16 cases across all 16 knowledge states — so every turn is scored
+as informative or wasted without the rules engine.
+
+It needs an Anthropic API key, and refuses to run without one rather than
+showing a simulated result. The trajectory of every interview is displayed:
+what the applicant said, what was asked, which questions could not have changed
+the answer, and whether the verdict was reachable from what the agent knew.
+
 ## What is not established
 
 **No agent has been run on either benchmark.** Both harnesses call a real
