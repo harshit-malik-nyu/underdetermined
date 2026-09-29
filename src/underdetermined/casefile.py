@@ -156,8 +156,6 @@ class CaseFileScore:
 
 def score_casefile(cf: CaseFile) -> dict:
     """Score one case file, including the trajectory-only failures."""
-    truth_eligible = None  # filled by the caller against the oracle
-
     illegible_seen: set[str] = set()
     over_retried = gave_up = 0
     for r in cf.readings:
