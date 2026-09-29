@@ -52,17 +52,17 @@ progress{width:100%;height:2px;accent-color:var(--brass)}
 volunteered and may ask for more. Asking costs the applicant time. The oracle
 below knows, for every state of knowledge, whether the case can be decided and
 which question would change the answer &mdash; so every turn is scored as
-informative or wasted.</p>
+informative or wasted. Claude answers each turn directly &mdash; no key needed, and no simulated result if it is unavailable.</p>
 
 <div class="panel">
   <div class="row">
-    <div><label for="key">Anthropic API key</label><input id="key" type="password" placeholder="sk-ant-..." autocomplete="off"></div>
-    <div><label for="model">Model</label><select id="model">
-      <option value="claude-sonnet-4-6">Sonnet 4.6</option>
-      <option value="claude-opus-4-1-20250805">Opus 4.1</option>
-      <option value="claude-haiku-4-5-20251001">Haiku 4.5</option>
+    <div><label for="tier">Model tier</label><select id="tier">
+      <option value="default">Default</option>
+      <option value="quick">Quick</option>
+      <option value="complex">Complex</option>
     </select></div>
     <div><label for="budget">Question budget</label><input id="budget" type="number" value="4" min="1" max="4"></div>
+    <div><label for="ncases">Cases</label><input id="ncases" type="number" value="16" min="4" max="16"></div>
   </div>
   <button id="run">Run the benchmark</button>
   <progress id="prog" value="0" max="100" hidden></progress>
@@ -135,35 +135,41 @@ function parse(t){
   return {move:"answer", v:"cannot_determine"};
 }
 
-async function call(apiKey, model, content){
-  const r = await fetch("https://api.anthropic.com/v1/messages",{
-    method:"POST",
-    headers:{"content-type":"application/json","x-api-key":apiKey,
-             "anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
-    body:JSON.stringify({model,max_tokens:32,temperature:0,system:SYSTEM,
-      messages:[{role:"user",content}]})
-  });
-  if(!r.ok) throw new Error(`API ${r.status}: ${(await r.text()).slice(0,160)}`);
-  const d = await r.json();
-  return (d.content||[]).map(b=>b.text||"").join("");
+// Resolved on a click, never at load: the capability arrives asynchronously
+// and a page that blocks its first paint on it renders blank.
+let SAMPLE;
+async function getSample(){
+  if (SAMPLE === undefined) SAMPLE = await claude.use("sample");
+  return SAMPLE;
+}
+
+async function call(tier, content){
+  const sample = await getSample();
+  if (!sample) throw new Error(
+    "Claude is not available in this view, so the benchmark cannot run. " +
+    "It does not simulate a model.");
+  // cache:false deliberately. A replayed answer would make a second run of an
+  // identical interview free and identical, which is not a measurement.
+  const r = await sample(SYSTEM + "\n\n" + content,
+                         {modelTier: tier, cache: false});
+  return (r && r.text) || "";
 }
 
 document.getElementById("run").addEventListener("click", async () => {
-  const apiKey = document.getElementById("key").value.trim();
-  const model = document.getElementById("model").value;
+  const tier = document.getElementById("tier").value;
   const budget = Math.min(4, Math.max(1, +document.getElementById("budget").value||4));
+  const ncases = Math.min(ORACLE.length, Math.max(4, +document.getElementById("ncases").value||16));
+  const cases = ORACLE.slice(0, ncases);
   const err = document.getElementById("err"), prog = document.getElementById("prog");
   const btn = document.getElementById("run");
   err.hidden = true;
-  if(!apiKey){ err.textContent="An API key is needed. This runs a real model; it does not simulate one."; err.hidden=false; return; }
-
   btn.disabled = true; prog.hidden = false; prog.value = 0;
   const rows = [];
   let unsafe=0, stalled=0, resolved=0, correct=0, asked=0, wasted=0;
 
   try{
-    for(let i=0;i<ORACLE.length;i++){
-      const c = ORACLE[i];
+    for(let i=0;i<cases.length;i++){
+      const c = cases[i];
       let known = ["employment_income"];
       const turns = [];
       let final = null;
@@ -172,7 +178,7 @@ document.getElementById("run").addEventListener("click", async () => {
         const lines = [describe(c, known)];
         turns.forEach(t => { if(t.field) lines.push(`You asked for ${t.field}. Answer: ${c.household[t.field]}.`); });
         lines.push(`You may ask ${budget - turns.filter(t=>t.field).length} more question(s).`);
-        const a = parse(await call(apiKey, model, lines.join("\n")));
+        const a = parse(await call(tier, lines.join("\n")));
 
         if(a.move === "answer"){ final = a.v; break; }
         const valid = FIELDS.includes(a.field);
@@ -193,14 +199,14 @@ document.getElementById("run").addEventListener("click", async () => {
       else { outcome = final === truth.truth ? "correct" : "wrong"; resolved++; if(final===truth.truth) correct++; }
 
       rows.push({said:describe(c,["employment_income"]), turns, final, truth:truth.truth, open, outcome});
-      prog.value = ((i+1)/ORACLE.length)*100;
+      prog.value = ((i+1)/cases.length)*100;
     }
   }catch(e){
     err.textContent = String(e.message||e); err.hidden = false;
     btn.disabled = false; prog.hidden = true; return;
   }
 
-  const n = ORACLE.length;
+  const n = cases.length;
   const pct = x => (x*100).toFixed(1)+"%";
   document.getElementById("s-unsafe").textContent = pct(unsafe/n);
   document.getElementById("s-waste").textContent = asked ? pct(wasted/asked) : "—";

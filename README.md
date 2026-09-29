@@ -143,15 +143,24 @@ here.
 
 ## Running an agent on it
 
-[`docs/benchmark.html`](docs/benchmark.html) runs the interview benchmark
-against a real model in the browser. The full oracle is precomputed and
-embedded — 16 cases across all 16 knowledge states — so every turn is scored
-as informative or wasted without the rules engine.
+**[Run it here](https://claude.ai/artifact/8rn6WxAXdUSexC8xfCCefj)** — no key,
+no setup, one click.
 
-It needs an Anthropic API key, and refuses to run without one rather than
-showing a simulated result. The trajectory of every interview is displayed:
-what the applicant said, what was asked, which questions could not have changed
-the answer, and whether the verdict was reachable from what the agent knew.
+The full oracle is precomputed and embedded: 16 cases across all 16 knowledge
+states, 256 entries. Every turn is scored as informative or wasted in the
+browser, with no rules engine and no server — the expensive part ran once and
+was committed.
+
+Claude answers each turn through the page's own sampling capability. If it is
+unavailable the page says so and stops, rather than showing a simulated result;
+that is the same rule the Python harness follows.
+
+Every trajectory is displayed: what the applicant volunteered, what was asked,
+which questions could not have changed the answer, and whether the verdict was
+reachable from what the agent actually knew. Reference points sit beside the
+score, because a number here is unreadable alone — answering immediately is
+91.7% unsafe, asking everything wastes 44.4% of its questions at 3.00 per case,
+perfect seeking resolves at 1.67 with none wasted.
 
 ## What is not established
 
