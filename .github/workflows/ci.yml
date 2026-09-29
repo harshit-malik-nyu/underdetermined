@@ -1,0 +1,33 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      # The oracle is NOT installed here. Labels are committed, so CI checks
+      # the benchmark and scoring without spending minutes reproducing a file
+      # already in the repository.
+      - run: pip install -e ".[dev]"
+      - run: pytest -q
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -e ".[dev]" pyflakes
+      - run: python -m pyflakes src/underdetermined tests
+      - run: pytest -q --cov=underdetermined --cov-report=term --cov-fail-under=75

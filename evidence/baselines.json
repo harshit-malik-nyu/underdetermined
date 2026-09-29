@@ -1,0 +1,46 @@
+[
+  {
+    "n": 90,
+    "n_determinable": 54,
+    "n_underdetermined": 36,
+    "unsafe_rate": 1.0,
+    "coverage": 1.0,
+    "accuracy_when_answering": 0.7037037037037037,
+    "overcautious_rate": 0.0,
+    "abstains_on_everything": false,
+    "policy": "always answer"
+  },
+  {
+    "n": 90,
+    "n_determinable": 54,
+    "n_underdetermined": 36,
+    "unsafe_rate": 0.0,
+    "coverage": 0.0,
+    "accuracy_when_answering": 0.0,
+    "overcautious_rate": 1.0,
+    "abstains_on_everything": true,
+    "policy": "always abstain"
+  },
+  {
+    "n": 90,
+    "n_determinable": 54,
+    "n_underdetermined": 36,
+    "unsafe_rate": 0.0,
+    "coverage": 0.7037037037037037,
+    "accuracy_when_answering": 1.0,
+    "overcautious_rate": 0.2962962962962963,
+    "abstains_on_everything": false,
+    "policy": "abstain if anything missing"
+  },
+  {
+    "n": 90,
+    "n_determinable": 54,
+    "n_underdetermined": 36,
+    "unsafe_rate": 0.0,
+    "coverage": 1.0,
+    "accuracy_when_answering": 1.0,
+    "overcautious_rate": 0.0,
+    "abstains_on_everything": false,
+    "policy": "oracle (ceiling)"
+  }
+]

@@ -1,0 +1,927 @@
+[
+  {
+    "description": "A single-adult household with 3 dependent children, aged 64, living in TX. Not stated: employment income.",
+    "withheld": [
+      "employment_income"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 7023.0,
+    "flips_eligibility": false,
+    "n_outcomes": 5
+  },
+  {
+    "description": "A single-adult household with annual employment income of $6,000, living in TX. Not stated: dependents, age.",
+    "withheld": [
+      "dependents",
+      "age"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 11100.0,
+    "flips_eligibility": true,
+    "n_outcomes": 16
+  },
+  {
+    "description": "A single-adult household with annual employment income of $42,000, 3 dependent children, aged 35, living in NY.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $6,000, no dependent children, aged 22, living in TX.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $0, 3 dependent children, aged 50, living in MS.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $18,000, 1 dependent child, living in MS. Not stated: age.",
+    "withheld": [
+      "age"
+    ],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $42,000, no dependent children, aged 50, living in CA.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $24,000, aged 22. Not stated: state name, dependents.",
+    "withheld": [
+      "state_name",
+      "dependents"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 7383.0,
+    "flips_eligibility": true,
+    "n_outcomes": 16
+  },
+  {
+    "description": "A single-adult household with annual employment income of $0, no dependent children, aged 35, living in TX.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with 3 dependent children, aged 64, living in MS. Not stated: employment income.",
+    "withheld": [
+      "employment_income"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 7611.0,
+    "flips_eligibility": false,
+    "n_outcomes": 5
+  },
+  {
+    "description": "A single-adult household with annual employment income of $24,000, aged 22. Not stated: dependents, state name.",
+    "withheld": [
+      "dependents",
+      "state_name"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 7383.0,
+    "flips_eligibility": true,
+    "n_outcomes": 16
+  },
+  {
+    "description": "A single-adult household with no dependent children, aged 22, living in NY. Not stated: employment income.",
+    "withheld": [
+      "employment_income"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 584.0,
+    "flips_eligibility": true,
+    "n_outcomes": 5
+  },
+  {
+    "description": "A single-adult household with annual employment income of $60,000, 1 dependent child, aged 35, living in MS.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $6,000, living in TX. Not stated: age, dependents.",
+    "withheld": [
+      "age",
+      "dependents"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 11100.0,
+    "flips_eligibility": true,
+    "n_outcomes": 16
+  },
+  {
+    "description": "A single-adult household with annual employment income of $18,000, 1 dependent child, aged 64. Not stated: state name.",
+    "withheld": [
+      "state_name"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 3036.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with no dependent children, aged 50, living in CA. Not stated: employment income.",
+    "withheld": [
+      "employment_income"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 3522.0,
+    "flips_eligibility": true,
+    "n_outcomes": 5
+  },
+  {
+    "description": "A single-adult household with annual employment income of $18,000, no dependent children, aged 50, living in CA.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with 3 dependent children, aged 35, living in MS. Not stated: employment income.",
+    "withheld": [
+      "employment_income"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 7611.0,
+    "flips_eligibility": false,
+    "n_outcomes": 5
+  },
+  {
+    "description": "A single-adult household with annual employment income of $18,000, 1 dependent child, aged 35, living in TX.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $42,000, 3 dependent children, living in MS. Not stated: age.",
+    "withheld": [
+      "age"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 2460.0,
+    "flips_eligibility": true,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $18,000, 3 dependent children, aged 50, living in MS.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $60,000, aged 35, living in NY. Not stated: dependents.",
+    "withheld": [
+      "dependents"
+    ],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with 1 dependent child, aged 35, living in NY. Not stated: employment income.",
+    "withheld": [
+      "employment_income"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 6462.0,
+    "flips_eligibility": true,
+    "n_outcomes": 5
+  },
+  {
+    "description": "A single-adult household with no dependent children, aged 35, living in CA. Not stated: employment income.",
+    "withheld": [
+      "employment_income"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 3522.0,
+    "flips_eligibility": true,
+    "n_outcomes": 5
+  },
+  {
+    "description": "A single-adult household with annual employment income of $6,000, 2 dependent children, aged 35, living in MS.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $12,000, no dependent children, aged 22, living in MS.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $24,000, no dependent children, living in NY. Not stated: age.",
+    "withheld": [
+      "age"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 161.0,
+    "flips_eligibility": true,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with no dependent children, aged 22, living in MS. Not stated: employment income.",
+    "withheld": [
+      "employment_income"
+    ],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 5
+  },
+  {
+    "description": "A single-adult household with annual employment income of $30,000, 2 dependent children, aged 22, living in MS.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $42,000, no dependent children, aged 64, living in NY.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $42,000, 3 dependent children, living in NY. Not stated: age.",
+    "withheld": [
+      "age"
+    ],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $42,000, living in MS. Not stated: dependents, age.",
+    "withheld": [
+      "dependents",
+      "age"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 2460.0,
+    "flips_eligibility": true,
+    "n_outcomes": 16
+  },
+  {
+    "description": "A single-adult household with aged 22, living in MS. Not stated: dependents, employment income.",
+    "withheld": [
+      "dependents",
+      "employment_income"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 11511.0,
+    "flips_eligibility": true,
+    "n_outcomes": 20
+  },
+  {
+    "description": "A single-adult household with 2 dependent children, aged 22, living in CA. Not stated: employment income.",
+    "withheld": [
+      "employment_income"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 5982.0,
+    "flips_eligibility": false,
+    "n_outcomes": 5
+  },
+  {
+    "description": "A single-adult household with annual employment income of $12,000, 2 dependent children, aged 64, living in MS.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $30,000, 3 dependent children, aged 50, living in TX.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $18,000, 1 dependent child, aged 64, living in TX.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $30,000, living in TX. Not stated: dependents, age.",
+    "withheld": [
+      "dependents",
+      "age"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 5340.0,
+    "flips_eligibility": true,
+    "n_outcomes": 16
+  },
+  {
+    "description": "A single-adult household with 2 dependent children, aged 35, living in NY. Not stated: employment income.",
+    "withheld": [
+      "employment_income"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 7905.0,
+    "flips_eligibility": false,
+    "n_outcomes": 5
+  },
+  {
+    "description": "A single-adult household with annual employment income of $42,000, 3 dependent children, aged 64, living in CA.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $60,000, 2 dependent children, living in NY. Not stated: age.",
+    "withheld": [
+      "age"
+    ],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $30,000, 2 dependent children, living in TX. Not stated: age.",
+    "withheld": [
+      "age"
+    ],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $18,000, 1 dependent child, living in NY. Not stated: age.",
+    "withheld": [
+      "age"
+    ],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $6,000, 1 dependent child, aged 35. Not stated: state name.",
+    "withheld": [
+      "state_name"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 3744.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $0, 1 dependent child, aged 35, living in CA.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $12,000, aged 35. Not stated: state name, dependents.",
+    "withheld": [
+      "state_name",
+      "dependents"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 10155.0,
+    "flips_eligibility": true,
+    "n_outcomes": 16
+  },
+  {
+    "description": "A single-adult household with annual employment income of $60,000, 3 dependent children, living in NY. Not stated: age.",
+    "withheld": [
+      "age"
+    ],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $60,000, 2 dependent children, aged 35, living in NY.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $6,000, 1 dependent child, aged 35, living in MS.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $24,000, 2 dependent children, aged 50. Not stated: state name.",
+    "withheld": [
+      "state_name"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 2301.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $30,000, 3 dependent children, aged 50, living in MS.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with no dependent children, aged 64, living in NY. Not stated: employment income.",
+    "withheld": [
+      "employment_income"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 2044.0,
+    "flips_eligibility": true,
+    "n_outcomes": 5
+  },
+  {
+    "description": "A single-adult household with annual employment income of $60,000, 1 dependent child, aged 64, living in MS.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $6,000, 1 dependent child, aged 64, living in CA.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $12,000, 2 dependent children, aged 50, living in MS.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $18,000, 2 dependent children, aged 35, living in CA.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $18,000, 3 dependent children, aged 22, living in NY.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $0, aged 64, living in NY. Not stated: dependents.",
+    "withheld": [
+      "dependents"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 9713.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $60,000, 3 dependent children, living in CA. Not stated: age.",
+    "withheld": [
+      "age"
+    ],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $42,000, 3 dependent children, living in NY. Not stated: age.",
+    "withheld": [
+      "age"
+    ],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $12,000, no dependent children, living in TX. Not stated: age.",
+    "withheld": [
+      "age"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 791.0,
+    "flips_eligibility": true,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $30,000, aged 35, living in MS. Not stated: dependents.",
+    "withheld": [
+      "dependents"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 5340.0,
+    "flips_eligibility": true,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with 1 dependent child, aged 64, living in NY. Not stated: employment income.",
+    "withheld": [
+      "employment_income"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 6183.0,
+    "flips_eligibility": false,
+    "n_outcomes": 5
+  },
+  {
+    "description": "A single-adult household with annual employment income of $18,000, 1 dependent child, living in TX. Not stated: age.",
+    "withheld": [
+      "age"
+    ],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $12,000, aged 50. Not stated: dependents, state name.",
+    "withheld": [
+      "dependents",
+      "state_name"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 10155.0,
+    "flips_eligibility": true,
+    "n_outcomes": 16
+  },
+  {
+    "description": "A single-adult household with annual employment income of $18,000, 1 dependent child, aged 22. Not stated: state name.",
+    "withheld": [
+      "state_name"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 3036.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $12,000, 1 dependent child, living in NY. Not stated: age.",
+    "withheld": [
+      "age"
+    ],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $30,000, no dependent children, aged 50, living in TX.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $60,000, no dependent children, aged 22, living in NY.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with 1 dependent child, aged 35, living in TX. Not stated: employment income.",
+    "withheld": [
+      "employment_income"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 6033.0,
+    "flips_eligibility": true,
+    "n_outcomes": 5
+  },
+  {
+    "description": "A single-adult household with annual employment income of $24,000, no dependent children, aged 22, living in TX.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $60,000, no dependent children, living in CA. Not stated: age.",
+    "withheld": [
+      "age"
+    ],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $42,000, 1 dependent child, aged 50, living in NY.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $0, 1 dependent child, aged 35. Not stated: state name.",
+    "withheld": [
+      "state_name"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 1584.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $18,000, 1 dependent child, aged 22. Not stated: state name.",
+    "withheld": [
+      "state_name"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 3036.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $18,000, 2 dependent children, aged 50, living in CA.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $12,000, 3 dependent children, aged 35, living in CA.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $30,000, 3 dependent children, living in MS. Not stated: age.",
+    "withheld": [
+      "age"
+    ],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $24,000, 3 dependent children, aged 22, living in NY.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with 1 dependent child, aged 50, living in CA. Not stated: employment income.",
+    "withheld": [
+      "employment_income"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 4878.0,
+    "flips_eligibility": true,
+    "n_outcomes": 5
+  },
+  {
+    "description": "A single-adult household with annual employment income of $6,000, 3 dependent children, aged 64, living in TX.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $42,000, no dependent children, aged 22, living in NY.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $24,000, 3 dependent children, aged 64, living in NY.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $42,000, no dependent children. Not stated: state name, age.",
+    "withheld": [
+      "state_name",
+      "age"
+    ],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 16
+  },
+  {
+    "description": "A single-adult household with 3 dependent children, aged 22. Not stated: state name, employment income.",
+    "withheld": [
+      "state_name",
+      "employment_income"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 7857.0,
+    "flips_eligibility": false,
+    "n_outcomes": 20
+  },
+  {
+    "description": "A single-adult household with annual employment income of $12,000, 3 dependent children, aged 22, living in MS.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $42,000, 2 dependent children, living in CA. Not stated: age.",
+    "withheld": [
+      "age"
+    ],
+    "label": "determinable",
+    "truth": "not_eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with annual employment income of $24,000, 2 dependent children, aged 22, living in NY.",
+    "withheld": [],
+    "label": "determinable",
+    "truth": "eligible",
+    "spread": 0.0,
+    "flips_eligibility": false,
+    "n_outcomes": 1
+  },
+  {
+    "description": "A single-adult household with annual employment income of $0, 1 dependent child, aged 64. Not stated: state name.",
+    "withheld": [
+      "state_name"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 1584.0,
+    "flips_eligibility": false,
+    "n_outcomes": 4
+  },
+  {
+    "description": "A single-adult household with 2 dependent children, aged 22, living in TX. Not stated: employment income.",
+    "withheld": [
+      "employment_income"
+    ],
+    "label": "underdetermined",
+    "truth": "cannot_determine",
+    "spread": 7296.0,
+    "flips_eligibility": false,
+    "n_outcomes": 5
+  }
+]
