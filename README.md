@@ -274,10 +274,10 @@ Raw run and every trajectory: [`evidence/agent_run.json`](evidence/agent_run.jso
 
 ## What is not established
 
-**The interview benchmark now has one measured run** (above). The case-file
-benchmark — unreliable sources, longer horizons — does not. Its harness calls a
-real model and raises without a key rather than fabricating output, so that row
-stays empty until someone runs it. The benchmark and the baselines stand on
+**The interview benchmark has one measured run** (above). The case-file
+benchmark is now runnable from the same page — a second button, the same
+sampling capability, the same persistence — but has no committed run yet. Its
+Python harness still raises without a key rather than fabricating output. The benchmark and the baselines stand on
 their own; the agent result is the open question.
 
 Other limits are in [`docs/against.md`](docs/against.md), including the one
