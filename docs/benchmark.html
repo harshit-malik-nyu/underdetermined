@@ -78,6 +78,8 @@ informative or wasted. Claude answers each turn directly &mdash; no key needed, 
     <div class="score"><p class="n" id="s-q">—</p><p class="l">Questions / case</p></div>
   </div>
   <p class="note" id="verdict"></p>
+  <p class="note" id="cmp" hidden></p>
+  <p class="note" id="save" hidden></p>
   <div class="scroll"><table id="tbl">
     <thead><tr><th>Applicant said</th><th>Turns</th><th>Verdict</th><th>Truth</th><th></th></tr></thead>
     <tbody></tbody>
@@ -230,6 +232,65 @@ document.getElementById("run").addEventListener("click", async () => {
   }).join("");
 
   document.getElementById("out").hidden = false;
+
+  // Persist the result. The whole point of this page is that the benchmark
+  // has never been RUN — writing the score where it can be read back is what
+  // turns a measuring instrument into a measurement.
+  const save = document.getElementById("save");
+  try{
+    const db = await claude.use("db");
+    if(db){
+      const id = "run_" + Date.now();
+      await db.doc("runs/" + id).set({
+        tier, budget, cases: n,
+        unsafe_rate: unsafe/n,
+        waste_rate: asked ? wasted/asked : 0,
+        stall_rate: stalled/n,
+        resolution_rate: resolved/n,
+        accuracy_when_resolved: resolved ? correct/resolved : 0,
+        questions_per_case: asked/n,
+        at: new Date().toISOString(),
+        trajectories: rows.map(r => ({
+          asked: r.turns.map(t => t.field),
+          wasted: r.turns.filter(t => !t.informative).length,
+          verdict: r.final, truth: r.truth, outcome: r.outcome
+        }))
+      });
+      save.textContent = "Result saved. It can now be read back and committed to the repository.";
+      save.hidden = false;
+    } else {
+      save.textContent = "Result shown but not saved — storage is unavailable in this view.";
+      save.hidden = false;
+    }
+  }catch(e){
+    save.textContent = "Result shown but not saved: " + (e.message || e);
+    save.hidden = false;
+  }
+
+  // Rank the run against the reference policies, read from the same store
+  // rather than hardcoded, so the comparison cannot drift from the numbers
+  // the repository reports.
+  try{
+    const db2 = await claude.use("db");
+    if(db2){
+      const base = await db2.doc("baselines/interview").get();
+      const pol = base && base.data && base.data.policies;
+      if(pol){
+        const mine = {unsafe: unsafe/n, waste: asked?wasted/asked:0, q: asked/n};
+        const beat = pol.filter(x => x.name !== "optimal (ceiling)" &&
+          mine.unsafe <= x.unsafe_rate && mine.waste <= x.waste_rate &&
+          mine.q <= x.questions_per_case + 0.001);
+        const ceil = pol.find(x => x.name === "optimal (ceiling)");
+        const cmp = document.getElementById("cmp");
+        cmp.innerHTML =
+          `Beats <b>${beat.length} of 3</b> reference policies on every column at once. ` +
+          `The ceiling resolves at <b>${ceil.questions_per_case}</b> questions per case ` +
+          `with no waste; this run took <b>${mine.q.toFixed(2)}</b>.`;
+        cmp.hidden = false;
+      }
+    }
+  }catch(e){ /* comparison is a nicety; the score above stands without it */ }
+
   btn.disabled = false; prog.hidden = true;
 });
 </script>
