@@ -214,12 +214,70 @@ The hand-written policy reaches the same accuracy as exhausting-minus-five at
 **a third of the cost**, and that gap is what an agent should be measured
 against — not against zero.
 
+---
+
+# Measured
+
+**Claude (default tier), 16 cases, four-question budget.** One run, one prompt.
+
+| | Agent | Answer immediately | Ask everything | Optimal |
+|---|---:|---:|---:|---:|
+| Unsafe | **62.5%** | 91.7% | 0.0% | 0.0% |
+| Wasted questions | **41.9%** | 0.0% | 44.4% | 0.0% |
+| Stalled | **18.8%** | 0.0% | 0.0% | 0.0% |
+| Accuracy when resolved | **23.1%** | 70.4% | — | 100% |
+| Questions per case | **1.94** | 0.00 | 3.00 | 1.67 |
+
+**It beats no reference policy on every column.** Less unsafe than answering
+immediately, nearly as wasteful as asking for everything, and it stalls, which
+none of them do. It occupies the worst region of the space rather than a point
+between the extremes.
+
+## Four failures the trajectories name
+
+**A fixed opening move.** It asked for `state_name` first in **14 of 15** cases
+where it asked anything — including cases where nothing was worth asking, and
+cases where state could not change the answer. That is a habit, not reasoning
+about the case in front of it.
+
+**It re-asked for information it had already been given.** In **7 of 16** cases
+it requested `employment_income`, which was in the opening description every
+time. Every one of those turns was scored wasted, and in the application each
+is a document request sent to someone who already answered.
+
+**It invented a field.** One case opens by asking for
+`household_size_vs_income_threshold_state_name` — a name that does not exist,
+assembled from the concepts in the prompt. The environment recorded it as
+unavailable; a real intake system would have thrown.
+
+**It failed to terminate.** In **3 of 16** cases it spent all four questions and
+never returned a verdict. No reference policy does this, including the one that
+answers with no information at all.
+
+## What this establishes, and what it does not
+
+**The benchmark discriminates.** It produced four specific, nameable failures
+from a frontier model, none of which an accuracy score would surface, and none
+of which the clean interview version could see.
+
+**The rates are not precise.** One run, 16 cases, default tier, a deliberately
+unengineered prompt. The failure modes are legible; the numbers carry a wide
+interval and should be read as a demonstration that the instrument works rather
+than as a characterisation of the model.
+
+**The prompt was not tuned.** Explicitly so — a benchmark whose result moves
+with prompt tinkering measures the prompt. A tuned prompt would very likely fix
+the re-asking and the stalling, and *that* would be the interesting follow-up
+experiment: how much of this is capability and how much is instruction.
+
+Raw run and every trajectory: [`evidence/agent_run.json`](evidence/agent_run.json).
+
 ## What is not established
 
-**No agent has been run on either benchmark.** Both harnesses call a real
-model and raise without an API key rather than fabricating output, so the agent
-rows are honestly empty. `interview_agent.py` plugs into the same runner as the
-reference policies, so scoring one is a single command with a key. The benchmark and the baselines stand on
+**The interview benchmark now has one measured run** (above). The case-file
+benchmark — unreliable sources, longer horizons — does not. Its harness calls a
+real model and raises without a key rather than fabricating output, so that row
+stays empty until someone runs it. The benchmark and the baselines stand on
 their own; the agent result is the open question.
 
 Other limits are in [`docs/against.md`](docs/against.md), including the one

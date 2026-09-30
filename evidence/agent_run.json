@@ -1,0 +1,13 @@
+{
+  "model_tier": "default",
+  "cases": 16,
+  "budget": 4,
+  "run_at": "2026-09-30T01:20:19Z",
+  "unsafe_rate": 0.625,
+  "waste_rate": 0.4194,
+  "stall_rate": 0.1875,
+  "resolution_rate": 0.8125,
+  "accuracy_when_resolved": 0.2308,
+  "questions_per_case": 1.9375,
+  "note": "Single run, default tier, 16 cases, one prompt. Small sample; the failure modes are legible, the rates are not precise."
+}
