@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "assurance.py": "f30161e1dacbae6d0efe9ce04a9b8c1447d444821f4863f8e9388aaca85fb4e5",
+    "decision_lab.py": "7b2dd5ffd94542ca20358b037c1d5a1b2ffe3a097994eaff934399b4bec5b523",
+    "decision_spec.json": "114f4a6c09913b871023045ae260ae1ea702f4c26d0886e7540399a52337c462",
+    "measurement_contract.json": "e3730b8586d4ec8ea34a8e1bbca43759663790744c9498e52bb836d483ba1160",
+    "output/decision_lab/experiment.json": "07efb0a5951105f29deaee38fe1bcc9b85b0fa9c00170effa07198b2b223942b"
+  },
+  "outputs": {
+    "decision-assurance.md": "d191b73382180dc0f0b5a2b156eea9120d85b37fa11c27723ea15c387147fb68",
+    "stress-tests.json": "a63179dc514b6d8dac3ea3f6118db43be8f240022320e1147736d2a62fabde5e"
+  }
+}

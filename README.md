@@ -303,3 +303,7 @@ ANTHROPIC_API_KEY=... python -m underdetermined.evaluate   # score an agent
 MIT. The oracle, [PolicyEngine](https://github.com/PolicyEngine/policyengine-us),
 is AGPL-3.0 and is an optional dependency used to generate labels; the
 committed benchmark is data, not a derived work of it.
+
+## Decision robustness and domain measurement
+
+The [decision-assurance review](analysis/output/assurance/decision-assurance.md) reports feasibility across stressed assumptions, conditional cost regret, missing-outcome identification bounds, cluster-budget sensitivity, and a project-specific domain measurement contract. Domain quality is separate from synthetic activation. An unmeasured required quality gate means HOLD.

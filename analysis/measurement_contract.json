@@ -1,0 +1,23 @@
+{
+  "decision": "Choose when clarification is worth its burden and when an answer remains unsupported.",
+  "primary_outcome": "Correct resolved decisions per eligible case, jointly with necessary questions, wasted questions and unresolved outcomes.",
+  "denominator": "All assigned cases; report transport failures, abstentions and invalid/repeated questions as separate categories.",
+  "independence_unit": "Household or scenario family; multiple oracle states and trajectories may share the same underlying case.",
+  "quality_guardrail": "Unsupported definitive answers, question burden and complete transcript/provenance coverage.",
+  "minimum_data": "Case/family ID, oracle provenance, available and withheld facts, complete question/answer transcript, policy version, result and transport status.",
+  "failure_handling": "Never classify transport failure as deliberate abstention. Missing historical transcripts limit conclusions and cannot be reconstructed from aggregates.",
+  "release_rule": "Use deterministic replay to validate policy logic, with a separate evidence label from fresh model behavior; unresolved facts prevent definitive decisions when they can flip the answer.",
+  "reversal": "Question burden rises without reducing outcome ambiguity, or a withheld fact changes the claimed definitive answer.",
+  "project": "underdetermined",
+  "status": "PROPOSED MEASUREMENT CONTRACT; NOT AN EXECUTED DOMAIN EXPERIMENT",
+  "defense": [
+    [
+      "Why ask fewer questions?",
+      "Only when the remaining uncertainty cannot change the decision. Fewer questions alone is not success if correctness falls."
+    ],
+    [
+      "Can replay validate historical model behavior?",
+      "No. It validates the replayed policy under known cases. It cannot establish trajectories that were never recorded."
+    ]
+  ]
+}
