@@ -1,0 +1,6 @@
+withheld,label,cases,mean_spread,eligibility_flips
+0,determinable,38,0.0,0
+1,determinable,15,0.0,0
+1,underdetermined,26,4363.153846153846,11
+2,determinable,1,0.0,0
+2,underdetermined,10,8444.4,9

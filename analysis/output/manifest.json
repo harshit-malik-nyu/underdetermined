@@ -1,0 +1,19 @@
+{
+  "external_services_required": false,
+  "input_sha256": {
+    "evidence/benchmark.json": "2f8c56d5f7ba10201be0f25c1370103e6c67cbb9c2e581a7e4d29170896b553d"
+  },
+  "outputs": {
+    "query_1.csv": "f77475bf1985e7b4df0e2490a1c8b82b7601149db7a86cf2d839fcb2b5a1eb19",
+    "query_2.csv": "253369e4fd6a120ef66fdefe791cf93d2d3528f4c33c41573cfc5cefc2e0b93b"
+  },
+  "project": "underdetermined",
+  "quality_checks": [
+    "SQL type and domain constraints",
+    "row-count reconciliation",
+    "SQLite integrity"
+  ],
+  "query_sha256": "1e6d9cca258c473a745462baa7d43cf176c614a064e897c2b6ee886fa793c61a",
+  "rows": 90,
+  "scope": "Frozen oracle benchmark; aggregate historical agent run cannot reconstruct missing transcripts."
+}

@@ -79,6 +79,7 @@ class TrajectoryScore:
     def as_dict(self) -> dict:
         return {
             "n": self.n,
+            "safe_resolution_rate": self.resolved_correct / self.n if self.n else 0.0,
             # The three failure modes are always adjacent: any one alone
             # recommends a degenerate policy.
             "unsafe_rate": self.unsafe_rate,
@@ -86,6 +87,8 @@ class TrajectoryScore:
             "stall_rate": self.stall_rate,
             "resolution_rate": self.resolution_rate,
             "questions_per_case": self.questions_per_case,
+            "accuracy_denominator": "determinable commitments only; unsafe outcomes excluded",
+            "metric_version": 2,
             "accuracy_when_resolved": (
                 self.resolved_correct
                 / (self.resolved_correct + self.resolved_wrong)
@@ -127,8 +130,7 @@ def score_interview(interview: Interview, oracle: Oracle,
     asked = [t for t in interview.turns if t.action.move is Move.ASK]
     record = {
         "questions": len(asked),
-        "wasted": sum(1 for t in asked if t.informative is False and not t.repeated
-                      and not t.invalid),
+        "wasted": sum(1 for t in asked if t.informative is False or t.repeated or t.invalid),
         "repeated": sum(1 for t in asked if t.repeated),
         "invalid": sum(1 for t in asked if t.invalid),
         "answered": interview.final is not None,

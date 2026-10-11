@@ -1,5 +1,8 @@
 # Can an agent tell when a case cannot be decided?
 
+> **Validation update (2026-10-10):** Repeated and invalid questions count as waste. Transport errors raise and are recorded. Historical aggregate agent evidence cannot be converted into missing transcripts. See the [current decision brief](docs/decision-brief.md) and [reproducible analysis](analysis/README.md). Historical evidence and figures retain their original run context; this update supersedes conflicting claims below.
+
+
 Most benefit denials are never challenged. When they are, a large share are
 overturned — **67%** of appealed prior-authorisation denials in Medicare
 Advantage, 47% in Medicaid managed care, 43% in the ACA Marketplace
@@ -270,7 +273,7 @@ with prompt tinkering measures the prompt. A tuned prompt would very likely fix
 the re-asking and the stalling, and *that* would be the interesting follow-up
 experiment: how much of this is capability and how much is instruction.
 
-Raw run and every trajectory: [`evidence/agent_run.json`](evidence/agent_run.json).
+Historical aggregate run (raw trajectories were not retained): [`evidence/agent_run.json`](evidence/agent_run.json).
 
 ## What is not established
 

@@ -201,6 +201,7 @@ def step(interview: Interview, action: Action, oracle: Oracle,
     turn = Turn(action=action, repeated=repeated, invalid=invalid)
 
     if not invalid and not repeated:
+        assert name is not None
         turn.informative = informative_now(interview, name, oracle,
                                            material_spread)
         interview.known.add(name)
@@ -226,5 +227,5 @@ def make_interview(household: Household, volunteered: set[str] | None = None,
     food assistance and rarely enough to decide.
     """
     return Interview(household=household,
-                     known=set(volunteered or {"employment_income"}),
+                     known=set({"employment_income"} if volunteered is None else volunteered),
                      budget=budget, year=year)

@@ -141,6 +141,7 @@ class Reading:
         for k, v in self.revealed.items():
             label = k.replace("_", " ")
             if self.approximate and k == "employment_income":
+                assert isinstance(v, (int, float))
                 lo, hi = int(v * 0.75), int(v * 1.25)
                 parts.append(f"{label} is somewhere between ${lo:,} and ${hi:,}")
             else:

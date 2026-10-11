@@ -100,18 +100,22 @@ def ask(description: str, cfg: AgentConfig) -> str:
 
 def run_agent(results: list[DeterminabilityResult],
               cfg: AgentConfig | None = None,
-              progress: bool = False) -> list[Verdict]:
+              progress: bool = False, *, recorder: list | None = None) -> list[Verdict]:
     """Score a real model on the benchmark."""
     cfg = cfg or AgentConfig()
     out = []
     for i, r in enumerate(results, 1):
         try:
-            out.append(parse_verdict(ask(r.case.describe(), cfg)))
+            reply = ask(r.case.describe(), cfg)
+            out.append(parse_verdict(reply))
+            if recorder is not None:
+                recorder.append({"model": cfg.model, "system": SYSTEM,
+                                 "prompt": r.case.describe(), "response": reply, "status": "ok"})
         except Exception as exc:                      # noqa: BLE001
-            # A failed call is recorded as abstention, not dropped: dropping
-            # would remove cases from the denominator and flatter the score.
-            print(f"  call {i} failed: {type(exc).__name__}", flush=True)
-            out.append(Verdict.CANNOT_DETERMINE)
+            if recorder is not None:
+                recorder.append({"model": cfg.model, "status": "transport_error",
+                                 "error_type": type(exc).__name__})
+            raise RuntimeError("Model call failed; no behavioral score was produced") from exc
         if progress and i % 10 == 0:
             print(f"    {i}/{len(results)}", flush=True)
     return out

@@ -33,7 +33,9 @@ def load(path: Path) -> list[DeterminabilityResult]:
             spread=row["spread"],
             flips_eligibility=row.get("flips_eligibility", False),
         )
-        r.case.describe = lambda d=row["description"]: d   # type: ignore[method-assign]
+        def describe(d: str = row["description"]) -> str:
+            return d
+        r.case.describe = describe   # type: ignore[method-assign]
         out.append(r)
     return out
 
@@ -51,11 +53,19 @@ def main(argv: list[str] | None = None) -> int:
         results = results[:args.limit]
 
     print(f"scoring {args.model} on {len(results)} cases...", flush=True)
-    verdicts = run_agent(results, AgentConfig(model=args.model), progress=True)
+    transcript: list = []
+    try:
+        verdicts = run_agent(results, AgentConfig(model=args.model), progress=True,
+                             recorder=transcript)
+    except RuntimeError:
+        Path(args.out).write_text(json.dumps({"model": args.model,
+            "status": "transport_error", "transcript": transcript}, indent=2))
+        return 2
     s = score(results, verdicts)
 
     Path(args.out).write_text(json.dumps(
-        {"model": args.model, **s.as_dict(), "detail": s.detail}, indent=2))
+        {"model": args.model, "status": "completed", **s.as_dict(),
+         "detail": s.detail, "transcript": transcript}, indent=2))
     print()
     print(s.summary())
     return 0

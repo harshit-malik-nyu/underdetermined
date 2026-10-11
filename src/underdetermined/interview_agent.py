@@ -77,7 +77,7 @@ def _call(messages: list[dict], cfg: AgentConfig) -> str:
     return "".join(b.get("text", "") for b in data.get("content", []))
 
 
-def agent_policy(cfg: AgentConfig | None = None):
+def agent_policy(cfg: AgentConfig | None = None, *, recorder: list | None = None):
     """A policy backed by a real model, usable wherever a reference policy is."""
     cfg = cfg or AgentConfig()
 
@@ -89,11 +89,18 @@ def agent_policy(cfg: AgentConfig | None = None):
                 value = getattr(interview.household, name, None)
                 lines.append(f"You asked for {name}. Answer: {value}.")
         lines.append(f"You may ask {interview.budget_left()} more question(s).")
+        messages = [{"role": "user", "content": "\n".join(lines)}]
         try:
-            reply = _call([{"role": "user", "content": "\n".join(lines)}], cfg)
-        except Exception as exc:                       # noqa: BLE001
-            print(f"  call failed: {type(exc).__name__}", flush=True)
-            return Action.answer(Verdict.CANNOT_DETERMINE)
+            reply = _call(messages, cfg)
+        except Exception as exc:
+            if recorder is not None:
+                recorder.append({"model": cfg.model, "system": SYSTEM,
+                                 "messages": messages, "status": "transport_error",
+                                 "error_type": type(exc).__name__})
+            raise RuntimeError("Model call failed; no behavioral score was produced") from exc
+        if recorder is not None:
+            recorder.append({"model": cfg.model, "system": SYSTEM,
+                             "messages": messages, "response": reply, "status": "ok"})
         return parse_action(reply)
 
     return policy
