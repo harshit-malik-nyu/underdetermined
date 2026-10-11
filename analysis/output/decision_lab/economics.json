@@ -1,0 +1,2599 @@
+{
+  "base_case": {
+    "cost_factor": 1.0,
+    "options": [
+      {
+        "capacity_gate_pass": false,
+        "cash_outlay_usd": 5400.0,
+        "components": [
+          {
+            "activity": "User-assisted information collection",
+            "cash_outlay_usd": 0.0,
+            "economic_cost_usd": 135000.0,
+            "quantity": 2700.0,
+            "unit": "reviewer_hour"
+          },
+          {
+            "activity": "Assistant turns",
+            "cash_outlay_usd": 5400.0,
+            "economic_cost_usd": 5400.0,
+            "quantity": 180000.0,
+            "unit": "turn"
+          }
+        ],
+        "economic_cost_usd": 140400.0,
+        "expected_incidents": 36.0,
+        "feasible": false,
+        "option": "Ask every available question",
+        "reviewer_hours": 2700.0,
+        "risk_gate_pass": true,
+        "scenario_loss_usd": 0.0,
+        "volume": 18000.0
+      },
+      {
+        "capacity_gate_pass": true,
+        "cash_outlay_usd": 18700.0,
+        "components": [
+          {
+            "activity": "Information collection and escalation",
+            "cash_outlay_usd": 0.0,
+            "economic_cost_usd": 75000.0,
+            "quantity": 1500.0,
+            "unit": "reviewer_hour"
+          },
+          {
+            "activity": "Assistant turns",
+            "cash_outlay_usd": 2700.0,
+            "economic_cost_usd": 2700.0,
+            "quantity": 90000.0,
+            "unit": "turn"
+          }
+        ],
+        "economic_cost_usd": 93700.0,
+        "expected_incidents": 45.0,
+        "feasible": true,
+        "option": "Decision-relevant questions plus abstention",
+        "reviewer_hours": 1500.0,
+        "risk_gate_pass": true,
+        "scenario_loss_usd": 0.0,
+        "volume": 18000.0
+      },
+      {
+        "capacity_gate_pass": true,
+        "cash_outlay_usd": 3540.0,
+        "components": [
+          {
+            "activity": "Answer handling",
+            "cash_outlay_usd": 0.0,
+            "economic_cost_usd": 15000.0,
+            "quantity": 300.0,
+            "unit": "reviewer_hour"
+          },
+          {
+            "activity": "Assistant turns",
+            "cash_outlay_usd": 540.0,
+            "economic_cost_usd": 540.0,
+            "quantity": 18000.0,
+            "unit": "turn"
+          }
+        ],
+        "economic_cost_usd": 18540.0,
+        "expected_incidents": 720.0,
+        "feasible": false,
+        "option": "Immediate answer from incomplete evidence",
+        "reviewer_hours": 300.0,
+        "risk_gate_pass": false,
+        "scenario_loss_usd": 0.0,
+        "volume": 18000.0
+      }
+    ],
+    "recommended_if_assumptions_hold": "Decision-relevant questions plus abstention",
+    "risk_factor": 1.0,
+    "volume_factor": 1.0
+  },
+  "break_even": [
+    {
+      "additional_fixed_usd": 16000,
+      "minimum_integer_volume_to_break_even": 4594,
+      "option": "Decision-relevant questions plus abstention",
+      "qualification": "Positive unit advantage required; risk and capacity gates still apply.",
+      "relative_to": "Ask every available question",
+      "unit_economic_advantage_usd": 3.483333
+    },
+    {
+      "additional_fixed_usd": 3000,
+      "minimum_integer_volume_to_break_even": 433,
+      "option": "Immediate answer from incomplete evidence",
+      "qualification": "Positive unit advantage required; risk and capacity gates still apply.",
+      "relative_to": "Ask every available question",
+      "unit_economic_advantage_usd": 6.936667
+    }
+  ],
+  "evidence_status": "ILLUSTRATIVE PLANNING ASSUMPTIONS; NOT OBSERVED ROI",
+  "scenarios": [
+    {
+      "cost_factor": 0.75,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 2025.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 50625.0,
+              "quantity": 1350.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 2025.0,
+              "economic_cost_usd": 2025.0,
+              "quantity": 90000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 52650.0,
+          "expected_incidents": 18.0,
+          "feasible": true,
+          "option": "Ask every available question",
+          "reviewer_hours": 1350.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 17012.5,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 28125.0,
+              "quantity": 750.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 1012.5,
+              "economic_cost_usd": 1012.5,
+              "quantity": 45000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 45137.5,
+          "expected_incidents": 22.5,
+          "feasible": true,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 750.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3202.5,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 5625.0,
+              "quantity": 150.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 202.5,
+              "economic_cost_usd": 202.5,
+              "quantity": 9000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 8827.5,
+          "expected_incidents": 360.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 150.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        }
+      ],
+      "recommended_if_assumptions_hold": "Decision-relevant questions plus abstention",
+      "risk_factor": 1,
+      "volume_factor": 0.5
+    },
+    {
+      "cost_factor": 0.75,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 2025.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 50625.0,
+              "quantity": 1350.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 2025.0,
+              "economic_cost_usd": 2025.0,
+              "quantity": 90000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 52650.0,
+          "expected_incidents": 36.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 1350.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 17012.5,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 28125.0,
+              "quantity": 750.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 1012.5,
+              "economic_cost_usd": 1012.5,
+              "quantity": 45000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 45137.5,
+          "expected_incidents": 45.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 750.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3202.5,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 5625.0,
+              "quantity": 150.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 202.5,
+              "economic_cost_usd": 202.5,
+              "quantity": 9000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 8827.5,
+          "expected_incidents": 720.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 150.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 2,
+      "volume_factor": 0.5
+    },
+    {
+      "cost_factor": 0.75,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 2025.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 50625.0,
+              "quantity": 1350.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 2025.0,
+              "economic_cost_usd": 2025.0,
+              "quantity": 90000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 52650.0,
+          "expected_incidents": 72.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 1350.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 17012.5,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 28125.0,
+              "quantity": 750.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 1012.5,
+              "economic_cost_usd": 1012.5,
+              "quantity": 45000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 45137.5,
+          "expected_incidents": 90.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 750.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3202.5,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 5625.0,
+              "quantity": 150.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 202.5,
+              "economic_cost_usd": 202.5,
+              "quantity": 9000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 8827.5,
+          "expected_incidents": 1440.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 150.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 4,
+      "volume_factor": 0.5
+    },
+    {
+      "cost_factor": 1,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 2700.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 67500.0,
+              "quantity": 1350.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 2700.0,
+              "economic_cost_usd": 2700.0,
+              "quantity": 90000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 70200.0,
+          "expected_incidents": 18.0,
+          "feasible": true,
+          "option": "Ask every available question",
+          "reviewer_hours": 1350.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 17350.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 37500.0,
+              "quantity": 750.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 1350.0,
+              "economic_cost_usd": 1350.0,
+              "quantity": 45000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 54850.0,
+          "expected_incidents": 22.5,
+          "feasible": true,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 750.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3270.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 7500.0,
+              "quantity": 150.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 270.0,
+              "economic_cost_usd": 270.0,
+              "quantity": 9000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 10770.0,
+          "expected_incidents": 360.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 150.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        }
+      ],
+      "recommended_if_assumptions_hold": "Decision-relevant questions plus abstention",
+      "risk_factor": 1,
+      "volume_factor": 0.5
+    },
+    {
+      "cost_factor": 1,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 2700.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 67500.0,
+              "quantity": 1350.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 2700.0,
+              "economic_cost_usd": 2700.0,
+              "quantity": 90000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 70200.0,
+          "expected_incidents": 36.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 1350.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 17350.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 37500.0,
+              "quantity": 750.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 1350.0,
+              "economic_cost_usd": 1350.0,
+              "quantity": 45000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 54850.0,
+          "expected_incidents": 45.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 750.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3270.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 7500.0,
+              "quantity": 150.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 270.0,
+              "economic_cost_usd": 270.0,
+              "quantity": 9000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 10770.0,
+          "expected_incidents": 720.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 150.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 2,
+      "volume_factor": 0.5
+    },
+    {
+      "cost_factor": 1,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 2700.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 67500.0,
+              "quantity": 1350.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 2700.0,
+              "economic_cost_usd": 2700.0,
+              "quantity": 90000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 70200.0,
+          "expected_incidents": 72.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 1350.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 17350.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 37500.0,
+              "quantity": 750.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 1350.0,
+              "economic_cost_usd": 1350.0,
+              "quantity": 45000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 54850.0,
+          "expected_incidents": 90.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 750.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3270.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 7500.0,
+              "quantity": 150.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 270.0,
+              "economic_cost_usd": 270.0,
+              "quantity": 9000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 10770.0,
+          "expected_incidents": 1440.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 150.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 4,
+      "volume_factor": 0.5
+    },
+    {
+      "cost_factor": 1.5,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 4050.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 101250.0,
+              "quantity": 1350.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 4050.0,
+              "economic_cost_usd": 4050.0,
+              "quantity": 90000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 105300.0,
+          "expected_incidents": 18.0,
+          "feasible": true,
+          "option": "Ask every available question",
+          "reviewer_hours": 1350.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 18025.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 56250.0,
+              "quantity": 750.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 2025.0,
+              "economic_cost_usd": 2025.0,
+              "quantity": 45000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 74275.0,
+          "expected_incidents": 22.5,
+          "feasible": true,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 750.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3405.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 11250.0,
+              "quantity": 150.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 405.0,
+              "economic_cost_usd": 405.0,
+              "quantity": 9000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 14655.0,
+          "expected_incidents": 360.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 150.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        }
+      ],
+      "recommended_if_assumptions_hold": "Decision-relevant questions plus abstention",
+      "risk_factor": 1,
+      "volume_factor": 0.5
+    },
+    {
+      "cost_factor": 1.5,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 4050.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 101250.0,
+              "quantity": 1350.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 4050.0,
+              "economic_cost_usd": 4050.0,
+              "quantity": 90000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 105300.0,
+          "expected_incidents": 36.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 1350.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 18025.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 56250.0,
+              "quantity": 750.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 2025.0,
+              "economic_cost_usd": 2025.0,
+              "quantity": 45000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 74275.0,
+          "expected_incidents": 45.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 750.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3405.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 11250.0,
+              "quantity": 150.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 405.0,
+              "economic_cost_usd": 405.0,
+              "quantity": 9000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 14655.0,
+          "expected_incidents": 720.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 150.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 2,
+      "volume_factor": 0.5
+    },
+    {
+      "cost_factor": 1.5,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 4050.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 101250.0,
+              "quantity": 1350.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 4050.0,
+              "economic_cost_usd": 4050.0,
+              "quantity": 90000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 105300.0,
+          "expected_incidents": 72.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 1350.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 18025.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 56250.0,
+              "quantity": 750.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 2025.0,
+              "economic_cost_usd": 2025.0,
+              "quantity": 45000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 74275.0,
+          "expected_incidents": 90.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 750.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3405.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 11250.0,
+              "quantity": 150.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 405.0,
+              "economic_cost_usd": 405.0,
+              "quantity": 9000.0,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 14655.0,
+          "expected_incidents": 1440.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 150.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 9000.0
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 4,
+      "volume_factor": 0.5
+    },
+    {
+      "cost_factor": 0.75,
+      "options": [
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 4050.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 101250.0,
+              "quantity": 2700.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 4050.0,
+              "economic_cost_usd": 4050.0,
+              "quantity": 180000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 105300.0,
+          "expected_incidents": 36.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 2700.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 18025.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 56250.0,
+              "quantity": 1500.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 2025.0,
+              "economic_cost_usd": 2025.0,
+              "quantity": 90000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 74275.0,
+          "expected_incidents": 45.0,
+          "feasible": true,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 1500.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3405.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 11250.0,
+              "quantity": 300.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 405.0,
+              "economic_cost_usd": 405.0,
+              "quantity": 18000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 14655.0,
+          "expected_incidents": 720.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 300.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        }
+      ],
+      "recommended_if_assumptions_hold": "Decision-relevant questions plus abstention",
+      "risk_factor": 1,
+      "volume_factor": 1
+    },
+    {
+      "cost_factor": 0.75,
+      "options": [
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 4050.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 101250.0,
+              "quantity": 2700.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 4050.0,
+              "economic_cost_usd": 4050.0,
+              "quantity": 180000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 105300.0,
+          "expected_incidents": 72.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 2700.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 18025.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 56250.0,
+              "quantity": 1500.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 2025.0,
+              "economic_cost_usd": 2025.0,
+              "quantity": 90000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 74275.0,
+          "expected_incidents": 90.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 1500.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3405.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 11250.0,
+              "quantity": 300.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 405.0,
+              "economic_cost_usd": 405.0,
+              "quantity": 18000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 14655.0,
+          "expected_incidents": 1440.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 300.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 2,
+      "volume_factor": 1
+    },
+    {
+      "cost_factor": 0.75,
+      "options": [
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 4050.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 101250.0,
+              "quantity": 2700.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 4050.0,
+              "economic_cost_usd": 4050.0,
+              "quantity": 180000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 105300.0,
+          "expected_incidents": 144.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 2700.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 18025.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 56250.0,
+              "quantity": 1500.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 2025.0,
+              "economic_cost_usd": 2025.0,
+              "quantity": 90000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 74275.0,
+          "expected_incidents": 180.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 1500.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3405.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 11250.0,
+              "quantity": 300.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 405.0,
+              "economic_cost_usd": 405.0,
+              "quantity": 18000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 14655.0,
+          "expected_incidents": 2880.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 300.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 4,
+      "volume_factor": 1
+    },
+    {
+      "cost_factor": 1,
+      "options": [
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 5400.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 135000.0,
+              "quantity": 2700.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 5400.0,
+              "economic_cost_usd": 5400.0,
+              "quantity": 180000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 140400.0,
+          "expected_incidents": 36.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 2700.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 18700.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 75000.0,
+              "quantity": 1500.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 2700.0,
+              "economic_cost_usd": 2700.0,
+              "quantity": 90000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 93700.0,
+          "expected_incidents": 45.0,
+          "feasible": true,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 1500.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3540.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 15000.0,
+              "quantity": 300.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 540.0,
+              "economic_cost_usd": 540.0,
+              "quantity": 18000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 18540.0,
+          "expected_incidents": 720.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 300.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        }
+      ],
+      "recommended_if_assumptions_hold": "Decision-relevant questions plus abstention",
+      "risk_factor": 1,
+      "volume_factor": 1
+    },
+    {
+      "cost_factor": 1,
+      "options": [
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 5400.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 135000.0,
+              "quantity": 2700.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 5400.0,
+              "economic_cost_usd": 5400.0,
+              "quantity": 180000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 140400.0,
+          "expected_incidents": 72.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 2700.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 18700.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 75000.0,
+              "quantity": 1500.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 2700.0,
+              "economic_cost_usd": 2700.0,
+              "quantity": 90000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 93700.0,
+          "expected_incidents": 90.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 1500.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3540.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 15000.0,
+              "quantity": 300.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 540.0,
+              "economic_cost_usd": 540.0,
+              "quantity": 18000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 18540.0,
+          "expected_incidents": 1440.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 300.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 2,
+      "volume_factor": 1
+    },
+    {
+      "cost_factor": 1,
+      "options": [
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 5400.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 135000.0,
+              "quantity": 2700.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 5400.0,
+              "economic_cost_usd": 5400.0,
+              "quantity": 180000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 140400.0,
+          "expected_incidents": 144.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 2700.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 18700.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 75000.0,
+              "quantity": 1500.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 2700.0,
+              "economic_cost_usd": 2700.0,
+              "quantity": 90000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 93700.0,
+          "expected_incidents": 180.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 1500.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3540.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 15000.0,
+              "quantity": 300.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 540.0,
+              "economic_cost_usd": 540.0,
+              "quantity": 18000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 18540.0,
+          "expected_incidents": 2880.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 300.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 4,
+      "volume_factor": 1
+    },
+    {
+      "cost_factor": 1.5,
+      "options": [
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 8100.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 202500.0,
+              "quantity": 2700.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 8100.0,
+              "economic_cost_usd": 8100.0,
+              "quantity": 180000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 210600.0,
+          "expected_incidents": 36.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 2700.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 20050.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 112500.0,
+              "quantity": 1500.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 4050.0,
+              "economic_cost_usd": 4050.0,
+              "quantity": 90000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 132550.0,
+          "expected_incidents": 45.0,
+          "feasible": true,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 1500.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3810.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 22500.0,
+              "quantity": 300.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 810.0,
+              "economic_cost_usd": 810.0,
+              "quantity": 18000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 26310.0,
+          "expected_incidents": 720.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 300.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        }
+      ],
+      "recommended_if_assumptions_hold": "Decision-relevant questions plus abstention",
+      "risk_factor": 1,
+      "volume_factor": 1
+    },
+    {
+      "cost_factor": 1.5,
+      "options": [
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 8100.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 202500.0,
+              "quantity": 2700.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 8100.0,
+              "economic_cost_usd": 8100.0,
+              "quantity": 180000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 210600.0,
+          "expected_incidents": 72.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 2700.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 20050.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 112500.0,
+              "quantity": 1500.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 4050.0,
+              "economic_cost_usd": 4050.0,
+              "quantity": 90000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 132550.0,
+          "expected_incidents": 90.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 1500.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3810.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 22500.0,
+              "quantity": 300.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 810.0,
+              "economic_cost_usd": 810.0,
+              "quantity": 18000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 26310.0,
+          "expected_incidents": 1440.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 300.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 2,
+      "volume_factor": 1
+    },
+    {
+      "cost_factor": 1.5,
+      "options": [
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 8100.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 202500.0,
+              "quantity": 2700.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 8100.0,
+              "economic_cost_usd": 8100.0,
+              "quantity": 180000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 210600.0,
+          "expected_incidents": 144.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 2700.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 20050.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 112500.0,
+              "quantity": 1500.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 4050.0,
+              "economic_cost_usd": 4050.0,
+              "quantity": 90000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 132550.0,
+          "expected_incidents": 180.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 1500.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3810.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 22500.0,
+              "quantity": 300.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 810.0,
+              "economic_cost_usd": 810.0,
+              "quantity": 18000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 26310.0,
+          "expected_incidents": 2880.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 300.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 18000
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 4,
+      "volume_factor": 1
+    },
+    {
+      "cost_factor": 0.75,
+      "options": [
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 8100.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 202500.0,
+              "quantity": 5400.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 8100.0,
+              "economic_cost_usd": 8100.0,
+              "quantity": 360000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 210600.0,
+          "expected_incidents": 72.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 5400.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        },
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 20050.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 112500.0,
+              "quantity": 3000.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 4050.0,
+              "economic_cost_usd": 4050.0,
+              "quantity": 180000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 132550.0,
+          "expected_incidents": 90.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 3000.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3810.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 22500.0,
+              "quantity": 600.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 810.0,
+              "economic_cost_usd": 810.0,
+              "quantity": 36000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 26310.0,
+          "expected_incidents": 1440.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 600.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 1,
+      "volume_factor": 2
+    },
+    {
+      "cost_factor": 0.75,
+      "options": [
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 8100.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 202500.0,
+              "quantity": 5400.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 8100.0,
+              "economic_cost_usd": 8100.0,
+              "quantity": 360000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 210600.0,
+          "expected_incidents": 144.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 5400.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        },
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 20050.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 112500.0,
+              "quantity": 3000.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 4050.0,
+              "economic_cost_usd": 4050.0,
+              "quantity": 180000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 132550.0,
+          "expected_incidents": 180.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 3000.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3810.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 22500.0,
+              "quantity": 600.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 810.0,
+              "economic_cost_usd": 810.0,
+              "quantity": 36000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 26310.0,
+          "expected_incidents": 2880.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 600.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 2,
+      "volume_factor": 2
+    },
+    {
+      "cost_factor": 0.75,
+      "options": [
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 8100.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 202500.0,
+              "quantity": 5400.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 8100.0,
+              "economic_cost_usd": 8100.0,
+              "quantity": 360000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 210600.0,
+          "expected_incidents": 288.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 5400.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        },
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 20050.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 112500.0,
+              "quantity": 3000.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 4050.0,
+              "economic_cost_usd": 4050.0,
+              "quantity": 180000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 132550.0,
+          "expected_incidents": 360.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 3000.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 3810.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 22500.0,
+              "quantity": 600.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 810.0,
+              "economic_cost_usd": 810.0,
+              "quantity": 36000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 26310.0,
+          "expected_incidents": 5760.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 600.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 4,
+      "volume_factor": 2
+    },
+    {
+      "cost_factor": 1,
+      "options": [
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 10800.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 270000.0,
+              "quantity": 5400.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 10800.0,
+              "economic_cost_usd": 10800.0,
+              "quantity": 360000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 280800.0,
+          "expected_incidents": 72.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 5400.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        },
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 21400.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 150000.0,
+              "quantity": 3000.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 5400.0,
+              "economic_cost_usd": 5400.0,
+              "quantity": 180000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 171400.0,
+          "expected_incidents": 90.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 3000.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 4080.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 30000.0,
+              "quantity": 600.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 1080.0,
+              "economic_cost_usd": 1080.0,
+              "quantity": 36000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 34080.0,
+          "expected_incidents": 1440.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 600.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 1,
+      "volume_factor": 2
+    },
+    {
+      "cost_factor": 1,
+      "options": [
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 10800.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 270000.0,
+              "quantity": 5400.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 10800.0,
+              "economic_cost_usd": 10800.0,
+              "quantity": 360000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 280800.0,
+          "expected_incidents": 144.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 5400.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        },
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 21400.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 150000.0,
+              "quantity": 3000.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 5400.0,
+              "economic_cost_usd": 5400.0,
+              "quantity": 180000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 171400.0,
+          "expected_incidents": 180.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 3000.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 4080.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 30000.0,
+              "quantity": 600.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 1080.0,
+              "economic_cost_usd": 1080.0,
+              "quantity": 36000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 34080.0,
+          "expected_incidents": 2880.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 600.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 2,
+      "volume_factor": 2
+    },
+    {
+      "cost_factor": 1,
+      "options": [
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 10800.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 270000.0,
+              "quantity": 5400.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 10800.0,
+              "economic_cost_usd": 10800.0,
+              "quantity": 360000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 280800.0,
+          "expected_incidents": 288.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 5400.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        },
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 21400.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 150000.0,
+              "quantity": 3000.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 5400.0,
+              "economic_cost_usd": 5400.0,
+              "quantity": 180000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 171400.0,
+          "expected_incidents": 360.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 3000.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 4080.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 30000.0,
+              "quantity": 600.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 1080.0,
+              "economic_cost_usd": 1080.0,
+              "quantity": 36000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 34080.0,
+          "expected_incidents": 5760.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 600.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 4,
+      "volume_factor": 2
+    },
+    {
+      "cost_factor": 1.5,
+      "options": [
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 16200.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 405000.0,
+              "quantity": 5400.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 16200.0,
+              "economic_cost_usd": 16200.0,
+              "quantity": 360000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 421200.0,
+          "expected_incidents": 72.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 5400.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        },
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 24100.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 225000.0,
+              "quantity": 3000.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 8100.0,
+              "economic_cost_usd": 8100.0,
+              "quantity": 180000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 249100.0,
+          "expected_incidents": 90.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 3000.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 4620.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 45000.0,
+              "quantity": 600.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 1620.0,
+              "economic_cost_usd": 1620.0,
+              "quantity": 36000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 49620.0,
+          "expected_incidents": 1440.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 600.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 1,
+      "volume_factor": 2
+    },
+    {
+      "cost_factor": 1.5,
+      "options": [
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 16200.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 405000.0,
+              "quantity": 5400.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 16200.0,
+              "economic_cost_usd": 16200.0,
+              "quantity": 360000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 421200.0,
+          "expected_incidents": 144.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 5400.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        },
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 24100.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 225000.0,
+              "quantity": 3000.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 8100.0,
+              "economic_cost_usd": 8100.0,
+              "quantity": 180000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 249100.0,
+          "expected_incidents": 180.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 3000.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 4620.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 45000.0,
+              "quantity": 600.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 1620.0,
+              "economic_cost_usd": 1620.0,
+              "quantity": 36000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 49620.0,
+          "expected_incidents": 2880.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 600.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 2,
+      "volume_factor": 2
+    },
+    {
+      "cost_factor": 1.5,
+      "options": [
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 16200.0,
+          "components": [
+            {
+              "activity": "User-assisted information collection",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 405000.0,
+              "quantity": 5400.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 16200.0,
+              "economic_cost_usd": 16200.0,
+              "quantity": 360000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 421200.0,
+          "expected_incidents": 288.0,
+          "feasible": false,
+          "option": "Ask every available question",
+          "reviewer_hours": 5400.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        },
+        {
+          "capacity_gate_pass": false,
+          "cash_outlay_usd": 24100.0,
+          "components": [
+            {
+              "activity": "Information collection and escalation",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 225000.0,
+              "quantity": 3000.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 8100.0,
+              "economic_cost_usd": 8100.0,
+              "quantity": 180000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 249100.0,
+          "expected_incidents": 360.0,
+          "feasible": false,
+          "option": "Decision-relevant questions plus abstention",
+          "reviewer_hours": 3000.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 4620.0,
+          "components": [
+            {
+              "activity": "Answer handling",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 45000.0,
+              "quantity": 600.0,
+              "unit": "reviewer_hour"
+            },
+            {
+              "activity": "Assistant turns",
+              "cash_outlay_usd": 1620.0,
+              "economic_cost_usd": 1620.0,
+              "quantity": 36000,
+              "unit": "turn"
+            }
+          ],
+          "economic_cost_usd": 49620.0,
+          "expected_incidents": 5760.0,
+          "feasible": false,
+          "option": "Immediate answer from incomplete evidence",
+          "reviewer_hours": 600.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 36000
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 4,
+      "volume_factor": 2
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "project": "underdetermined",
+  "title": "Buy useful information before asking more questions or forcing an answer",
+  "decision_owner": "Assistant evaluation lead",
+  "observed_evidence": "Oracle cases expose withheld information, outcome spread and eligibility flips. Repeated/invalid questions count as waste; transport failures are separate from model abstention.",
+  "executive_recommendation": "Evaluate safe resolution, abstention and question burden separately. Favor decision-relevant questions only when a frozen policy clears the safety gate.",
+  "priorities": [
+    "Retain turn-level transcripts and transport errors for every future run.",
+    "Compare ask-all, ask-relevant and answer-now on the same held-out cases.",
+    "Stop when further questions cannot settle the decision; do not reward forced answers."
+  ],
+  "reversal": "If reduced question burden increases unsafe commitments, retain the safer policy even when it is slower.",
+  "uncertainty": "The historical aggregate run lacks transcripts. Deterministic policy replay does not reproduce fresh model behavior.",
+  "economics": {
+    "evidence_status": "ILLUSTRATIVE ASSUMPTIONS, NOT MEASURED COSTS OR RISK",
+    "period": "one planning year",
+    "volume": 18000,
+    "review_capacity_hours": 1800,
+    "loss_per_incident_usd": 0,
+    "max_incident_rate": 0.003,
+    "options": [
+      {
+        "name": "Ask every available question",
+        "fixed_usd": 0,
+        "incident_rate": 0.002,
+        "activities": [
+          {
+            "name": "User-assisted information collection",
+            "unit": "reviewer_hour",
+            "units_per_case": 0.15,
+            "usd_per_unit": 50,
+            "cash": false
+          },
+          {
+            "name": "Assistant turns",
+            "unit": "turn",
+            "units_per_case": 10,
+            "usd_per_unit": 0.03,
+            "cash": true
+          }
+        ]
+      },
+      {
+        "name": "Decision-relevant questions plus abstention",
+        "fixed_usd": 16000,
+        "incident_rate": 0.0025,
+        "activities": [
+          {
+            "name": "Information collection and escalation",
+            "unit": "reviewer_hour",
+            "units_per_case": 0.08333333333333333,
+            "usd_per_unit": 50,
+            "cash": false
+          },
+          {
+            "name": "Assistant turns",
+            "unit": "turn",
+            "units_per_case": 5,
+            "usd_per_unit": 0.03,
+            "cash": true
+          }
+        ]
+      },
+      {
+        "name": "Immediate answer from incomplete evidence",
+        "fixed_usd": 3000,
+        "incident_rate": 0.04,
+        "activities": [
+          {
+            "name": "Answer handling",
+            "unit": "reviewer_hour",
+            "units_per_case": 0.016666666666666666,
+            "usd_per_unit": 50,
+            "cash": false
+          },
+          {
+            "name": "Assistant turns",
+            "unit": "turn",
+            "units_per_case": 1,
+            "usd_per_unit": 0.03,
+            "cash": true
+          }
+        ]
+      }
+    ]
+  },
+  "product": {
+    "seed": 740,
+    "randomization_unit": "evaluator account; repeated states and cases stay grouped within account",
+    "stages": [
+      "case_opened",
+      "information_review_completed",
+      "safe_resolution_or_abstention_saved"
+    ],
+    "incident_definition": "unsupported commitment",
+    "retention_interpretation": "evaluator returns for another eligible case batch",
+    "observation_day": 56,
+    "minimum_activation_lift": 0.02,
+    "maximum_incident_increase": 0.005,
+    "planning_baseline": 0.45,
+    "minimum_detectable_effect": 0.05,
+    "segments": [
+      {
+        "name": "resolvable_case",
+        "start_probability": 0.9,
+        "control_activation": 0.64,
+        "treatment_delta": 0.15,
+        "apply_probability": 0.88,
+        "control_incident": 0.004,
+        "treatment_incident": 0.004,
+        "return7": 0.55,
+        "return28": 0.35
+      },
+      {
+        "name": "intrinsically_unresolved_case",
+        "start_probability": 0.8200000000000001,
+        "control_activation": 0.52,
+        "treatment_delta": -0.12,
+        "apply_probability": 0.8,
+        "control_incident": 0.01,
+        "treatment_incident": 0.064,
+        "return7": 0.43000000000000005,
+        "return28": 0.24999999999999997
+      }
+    ]
+  }
+}

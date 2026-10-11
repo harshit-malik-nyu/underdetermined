@@ -1,5 +1,7 @@
 # Can an agent tell when a case cannot be decided?
 
+**Decision study:** [Executive recommendation](analysis/output/decision_lab/executive-summary.md) · [Cost, cohort and experiment methods](analysis/README.md#decision-laboratory). Behavioral results are synthetic QA; economics are explicit planning assumptions.
+
 > **Validation update (2026-10-10):** Repeated and invalid questions count as waste. Transport errors raise and are recorded. Historical aggregate agent evidence cannot be converted into missing transcripts. See the [current decision brief](docs/decision-brief.md) and [reproducible analysis](analysis/README.md). Historical evidence and figures retain their original run context; this update supersedes conflicting claims below.
 
 

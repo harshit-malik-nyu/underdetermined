@@ -1,0 +1,5 @@
+segment,arm,assigned,activated,activation_itt,incidents,incident_itt
+intrinsically_unresolved_case,control,640,216,0.3375,2,0.003125
+intrinsically_unresolved_case,treatment,640,167,0.2609375,10,0.015625
+resolvable_case,control,640,319,0.4984375,3,0.0046875
+resolvable_case,treatment,640,405,0.6328125,6,0.009375
